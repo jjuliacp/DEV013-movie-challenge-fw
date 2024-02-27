@@ -9,8 +9,9 @@
 - [5. Consideraciones técnicas](#5-consideraciones-técnicas)
 - [6. Criterios mínimos de aceptación del proyecto](#6-criterios-mínimos-de-aceptación-del-proyecto)
 - [7. Despliegue](#7-despliegue)
-- [8. Consideraciones para pedir tu Project Feedback](#8-consideraciones-para-pedir-tu-project-feedback)
-- [9. Pistas, tips y lecturas complementarias](#9-pistas-tips-y-lecturas-complementarias)
+- [8. Planificación](#8-Planificación)
+- [9. Consideraciones para pedir tu Project Feedback](#9-consideraciones-para-pedir-tu-project-feedback)
+- [10. Pistas, tips y lecturas complementarias](#10-pistas-tips-y-lecturas-complementarias)
 
 ---
 
@@ -640,14 +641,16 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 Este proyecto se debe "resolver" de manera individual.
 
-El rango de tiempo estimado para completar el proyecto es de 2 a 3 Sprints.
-
-Los tests unitarios deben cubrir un mínimo del 90% de _statements_, _functions_,
+Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
 _lines_ y _branches_.
 
-Por otro lado, deberás definir la estructura de carpetas y archivos que consideres
-necesaria. Puedes guiarte de las convenciones del _framework_ elegido. Por ende,
-los _tests_ y el _setup_ necesario para ejecutarlos, serán hechos por ti.
+El rango de tiempo estimado para completar el proyecto es de 3 a 4 Sprints.
+
+Para implementar este proyecto te recomendamos usar la planificación
+sugerida que se encuentra en el repo
+[movie-challenge-planner](https://github.com/laboratoria/movie-challenge-planner)
+el cual provee un CLI para hacer fork del presente repositorio y crear un
+GitHub Project con el _milestone_ e _issues_ de cada historia de usuaria.
 
 ## 5. Consideraciones técnicas
 
@@ -669,13 +672,9 @@ Uno de los mayores objetivos de este proyecto es aprender a usar una librería o
 framework popular para desarrollar una web app.
 Debes elegir entre [React](https://es.react.dev/) o [Angular](https://angular.io/).
 
-Ten en cuenta que si eliges Angular, tienes la obligación de usar [TypeScript](https://www.typescriptlang.org/).
+Si usas Angular o React, tienes la obligación de usar [TypeScript](https://www.typescriptlang.org/).
 _Typescript_ es un lenguaje de programación fuertemente tipado basado en
 javascript.
-
-Si eliges React, la decisión de usar Typescript es opcional (pero te lo
-recomendamos!). Aquí puedes encontrar más información en relación a cómo iniciar
-tu proyecto con [Typescript y React](https://itnext.io/create-react-v18-typescript-project-with-vite-d0d602e4a60e).
 
 La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
 `test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
@@ -771,7 +770,35 @@ plataforma de _despliegue_ que nos permite desplegar nuestra aplicación
 web estática (HTML, CSS y JavaScript) y también nos permite desplegar
 aplicaciones web que se ejecutan en el servidor (Node.js).
 
-## 8. Consideraciones para pedir tu Project Feedback
+## 8. Planificación
+
+Para implementar este proyecto te recomendamos usar la planificación
+sugerida que se encuentra en el repo
+[movie-challenge-planner](https://github.com/laboratoria/movie-challenge-planner),
+el cual provee un CLI que te ayudará a _forkear_ el presente repositorio y crear un
+GitHub Project con el _milestone_ e _issues_ de cada
+[historia de usuaria](#6-criterios-mínimos-de-aceptación-del-proyecto).
+
+El rango de tiempo estimado para completar el proyecto es de 3 a 4 Sprints.
+Te sugerimos organizarte de la siguiente manera:
+
+- Sprint 1:
+completar la
+[Historia técnica 1](####[historia-técnica-1]-configuración-del-proyecto) y
+[Historia de usuario 2](####-[historia-de-usuario-2]-lista-de-películas)
+- Sprint 2:
+completar la 
+[Historia de usuario 3](####[historia-de-usuario-3]-lista-de-películas-paginadas) e
+iniciar con la
+[Historia de usuario 4](####[historia-de-usuario-4]-filtrar-y-ordenar)
+- Sprint 3:
+completar la
+[Historia de usuario 4](####[historia-de-usuario-4]-filtrar-y-ordenar)
+- Sprint 4:
+completar la
+[Historia de usuario 5](####[historia-de-usuario-5]-detalles-de-la-película)
+
+## 9. Consideraciones para pedir tu Project Feedback
 
 Antes de agendar tu Project Feedback con un coach, asegúrate que tu proyecto:
 
@@ -787,10 +814,10 @@ y life skills desde tu dashboard de estudiante.
 Si no has completado todo lo anterior, no consideramos que estás lista
 para tu sesión de Project Feedback.
 
-## 9. Pistas, tips y lecturas complementarias
+## 10. Pistas, tips y lecturas complementarias
 
 Súmate al canal de Slack
-[#project-movie-challenge-fw](https://claseslaboratoria.slack.com/archives/C04A0GS1WJX)
+[#project-movie-challenge-fw](https://claseslaboratoria.slack.com/archives/C059SJ77ASD)
 para conversar y pedir ayuda del proyecto.
 
 ### Prototipo de alta fidelidad
@@ -826,13 +853,6 @@ Identifica los headers, body, verbos, códigos de respuesta y encodings las peti
 La comunidad de desarrolladoras de cada framework se ha forzado mucho por crear
 documentaciones amigables para quienes inician con cada tecnología. Por lo tanto,
 date la oportunidad de explorar la documentación y probar sus ejemplos y tutoriales.
-
-### Planifica la implementación de la primera historia de usuaria
-
-Toma la primera historia de usuaria y
-divídela en tareas más pequeñas. Identifica
-el orden y prioridad de cada tarea.
-Documenta tu planificacion en Trello o Github Project.
 
 ### Implementa tu primer componente
 
