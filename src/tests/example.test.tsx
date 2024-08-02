@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 //import { Home } from "../pages/home";
-import '@testing-library/jest-dom'
-import App from "../App";
-
+import "@testing-library/jest-dom";
+import App from "../components/App";
 
 describe("App", () => {
   it("should render APP", () => {

@@ -1,0 +1,28 @@
+.container-cards {
+  padding: 5em 15em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 1.25rem;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+}
+.movie-card {
+  width: 240px;
+}
+.movie-title {
+  font-size: 1.3em;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.movie-year {
+  font-size: 0.9em;
+  font-weight: 250;
+}
+.movie-card-img {
+  width: 15em;
+  height: auto;
+}
