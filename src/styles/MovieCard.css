@@ -1,5 +1,5 @@
 .container-cards {
-  padding: 5em 15em;
+  padding: 3rem 15rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 1.25rem;
@@ -12,14 +12,14 @@
   width: 240px;
 }
 .movie-title {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 400;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 .movie-year {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 250;
 }
 .movie-card-img {
