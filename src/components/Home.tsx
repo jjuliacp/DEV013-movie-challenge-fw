@@ -41,20 +41,22 @@ function Home() {
         <h1 className="logo-text">Cinephile</h1>
       </header>
       <nav></nav>
-      <main>
-        {isLoading && <p>Cargando...</p>}
+      <main className={isLoading ? "loading" : ""}>
+        {isLoading && <div className="loader"></div>}
         {!isLoading && error && (
           <p>Ocurrió un error al cargar las películas.</p>
         )}
         {!isLoading && !error && <MovieList movies={movies} />}
       </main>
-      <footer>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.min(totalPages, 100)}
-          onSelectPage={handlePageChange}
-        />
-      </footer>
+      {!isLoading && !error && (
+        <footer>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.min(totalPages, 100)}
+            onSelectPage={handlePageChange}
+          />
+        </footer>
+      )}
     </>
   );
 }
