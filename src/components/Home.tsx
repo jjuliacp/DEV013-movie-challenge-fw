@@ -5,13 +5,15 @@ import MovieList from "./MovieList";
 import "../styles/Home.css";
 import Pagination from "./Pagination";
 import { LuPlaySquare } from "react-icons/lu";
+import { useSearchParams } from "react-router-dom";
 
 function Home() {
   const [movies, setMovies] = useState<Movie[]>([]); // Estado para almacenar las películas
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -32,7 +34,8 @@ function Home() {
 
   const handlePageChange = (page: number) => {
     console.log("actual", page);
-    setCurrentPage(page);
+    // Actualizar los searchParams con la nueva página
+    setSearchParams({ page: String(page) });
   };
   return (
     <>
