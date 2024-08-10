@@ -6,6 +6,8 @@ import "../styles/Home.css";
 import Pagination from "./Pagination";
 import { LuPlaySquare } from "react-icons/lu";
 import { useSearchParams } from "react-router-dom";
+import { formatGenresToMap } from "../utils/transformers";
+import { getMovieGenres } from "../services/movieService";
 
 function Home() {
   const [movies, setMovies] = useState<Movie[]>([]); // Estado para almacenar las películas
@@ -15,10 +17,27 @@ function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
+  const [genresMap, setGenresMap] = useState<Map<number, string>>(new Map());
+
+  useEffect(() => {
+    const fetchGenres = async () => {
+      try {
+        const resultGenre = await getMovieGenres();
+        setGenresMap(formatGenresToMap(resultGenre)); // obtiene los geenros y los formatea
+      } catch (error) {
+        console.error("Error fetching genres", error);
+      }
+    };
+    fetchGenres();
+  }, []); // se ejecuta solo una vez al mostrar el componente
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const result = await getMovies({ filters: { page: currentPage } });
+        const result = await getMovies(
+          { filters: { page: currentPage } },
+          genresMap
+        );
 
         setMovies(result.movies);
         setTotalPages(result.metaData.pagination.totalPages);
@@ -29,8 +48,11 @@ function Home() {
       }
     };
 
-    fetchMovies();
-  }, [currentPage]);
+    if (genresMap.size > 0) {
+      // Asegurarse de que el genresMap esté listo antes de hacer la solicitud de películas
+      fetchMovies();
+    }
+  }, [currentPage, genresMap]);
 
   const handlePageChange = (page: number) => {
     console.log("actual", page);

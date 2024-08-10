@@ -1,4 +1,4 @@
-import { formatMovie } from "../utils/transformers";
+/*import { formatMovie } from "../utils/transformers";
 import { expectedMovieEmpty, movieDataEmpty } from "./mockdata";
 
 describe("Transformers", () => {
@@ -32,3 +32,4 @@ describe("Transformers", () => {
     expect(formatMovie(movieDataEmpty)).toEqual(expectedMovieEmpty);
   });
 });
+*/

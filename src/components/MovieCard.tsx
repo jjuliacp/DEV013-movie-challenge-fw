@@ -16,6 +16,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       />
       <h2 className="movie-title">{movie.title}</h2>
       <p className="movie-year">{movie.releaseYear}</p>
+      <p className="movie-genre">{movie.genres.slice(0, 2)}</p>
     </li>
   );
 };

@@ -1,4 +1,3 @@
-//getMovies no rcibe parámetros - devolver  Promise<Movie[]>)
 import Movie from '../models/movie';
 import { TOKEN_API } from '../utils/config';
 import { formatMovie, MovieData } from '../utils/transformers';
@@ -12,7 +11,7 @@ interface ApiResponse {
 
 
 
-export async function getMovies({ filters: { page = 1 } }: { filters: { page?: number } }): Promise<{
+export async function getMovies({ filters: { page = 1 } }: { filters: { page?: number } }, genresMap: Map<number, string>): Promise<{
   metaData: { pagination: { currentPage: number; totalPages: number } };
   movies: Movie[];
 }> {
@@ -30,7 +29,7 @@ export async function getMovies({ filters: { page = 1 } }: { filters: { page?: n
     }
     const data: ApiResponse = await response.json();
     console.log("data:", data)
-    const movies: Movie[] = data.results.map((movie: MovieData) => formatMovie(movie)); // Aplica la función de transformación
+    const movies: Movie[] = data.results.map((movie: MovieData) => formatMovie(movie, genresMap)); // Aplica la función de transformación
     //console.log('Formatted Movies:', movies); // log formato de pelis 
     return {
       metaData: {
