@@ -34,3 +34,9 @@ export function formatGenresToMap(genres: { id: number; name: string }[]) {
     );
     return genresMap;
 }
+export function formatGenresToOptions(genresOptions: { id: string, name: string }[]) {
+    return genresOptions.map((genre) => ({
+        value: genre.id,
+        label: genre.name
+    }));
+}

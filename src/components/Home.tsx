@@ -77,7 +77,7 @@ function Home() {
         <footer>
           <Pagination
             currentPage={currentPage}
-            totalPages={Math.min(totalPages, 100)}
+            totalPages={Math.min(totalPages, 30)}
             onSelectPage={handlePageChange}
           />
         </footer>

@@ -20,10 +20,14 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.movie-genre,
 .movie-year {
-  font-size: 0.9rem;
-  font-weight: 250;
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
+
 .movie-card-img {
   width: 13em;
   height: auto;
