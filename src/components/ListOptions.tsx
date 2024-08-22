@@ -1,3 +1,5 @@
+import { GrPowerReset } from "react-icons/gr";
+
 interface ListOptionsProps {
   type: string;
   options: { value: string; label: string }[];
@@ -17,9 +19,9 @@ const ListOptions: React.FC<ListOptionsProps> = ({
 
   return (
     <>
-      <form>
+      <form className="filters-container">
         <select
-        className="genre-select"
+          className="genre-select"
           name="genre"
           id="genre-select"
           value={selectedOption?.value || defaultValue}
@@ -27,7 +29,6 @@ const ListOptions: React.FC<ListOptionsProps> = ({
             onChange({ value: e.target.value, label: e.target.value })
           }
         >
-
           <option value={defaultValue}>{type}</option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -37,8 +38,9 @@ const ListOptions: React.FC<ListOptionsProps> = ({
         </select>
         {selectedOption && selectedOption.value !== defaultValue && (
           <button title="clear" type="button" onClick={onClear}>
-            Clear
-          </button> )}
+            <GrPowerReset />
+          </button>
+        )}
       </form>
     </>
   );
