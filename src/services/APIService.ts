@@ -9,13 +9,33 @@ interface ApiResponse {
   total_pages: number;
 }
 
+interface Filters {
+  filters: {
+    page?: number;
+    genreId?: number | null;
+    sortBy?: string | null;
+  };
+}
 
-
-export async function getMovies({ filters: { page = 1 } }: { filters: { page?: number } }, genresMap: Map<number, string>): Promise<{
+export async function getMovies({ filters: { page = 1, genreId = null, sortBy = null } }: Filters, genresMap: Map<number, string>): Promise<{
   metaData: { pagination: { currentPage: number; totalPages: number } };
   movies: Movie[];
 }> {
-  const url = `https://api.themoviedb.org/3/discover/movie?page=${page}`;
+
+  // Construir la URL con los parámetros de filtrado
+  let url = `https://api.themoviedb.org/3/discover/movie?page=${page}`;
+
+  // Agregar el filtro de género si está definido
+  if (genreId !== null) {
+    url += `&with_genres=${genreId}`;
+  }
+
+  // Agregar el criterio de ordenamiento si está definido
+  if (sortBy) {
+    url += `&sort_by=${sortBy}`;
+  }
+  console.log("Constructed URL:", url);
+  console.log("Filters applied:", { page, genreId, sortBy });
 
 
   try {
@@ -29,16 +49,18 @@ export async function getMovies({ filters: { page = 1 } }: { filters: { page?: n
     }
     const data: ApiResponse = await response.json();
     console.log("data:", data)
-    const movies: Movie[] = data.results.map((movie: MovieData) => formatMovie(movie, genresMap)); // Aplica la función de transformación
+    // const movies: Movie[] = data.results.map((movie: MovieData) => formatMovie(movie, genresMap)); // Aplica la función de transformación
     //console.log('Formatted Movies:', movies); // log formato de pelis 
+
     return {
       metaData: {
         pagination: {
-          currentPage: page,
+          currentPage: data.page,
           totalPages: data.total_pages,
         },
       },
-      movies,
+      movies: data.results.map((movie: MovieData) => formatMovie(movie, genresMap)),
+      //aplicacion de transformacion
     };
   } catch (error) {
     console.error('Fetch error:', error)
