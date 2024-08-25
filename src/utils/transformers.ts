@@ -16,6 +16,9 @@ export interface MovieData {
 }
 
 export function formatMovie(movieData: MovieData, genreNames: Map<number, string>): Movie {
+
+    console.log("Genre IDs: ", movieData.genre_ids);
+    console.log("Genre Names Map: ", genreNames);
     return {
         id: movieData.id,
         title: movieData.title,
@@ -28,11 +31,12 @@ export function formatMovie(movieData: MovieData, genreNames: Map<number, string
     };
 }
 
+
 export function formatGenresToMap(genres: { id: number; name: string }[]) {
-    const genresMap = new Map<number, string>(
+    return new Map<number, string>(
         genres.map((genre) => [genre.id, genre.name])
     );
-    return genresMap;
+
 }
 export function formatGenresToOptions(genresOptions: { id: string, name: string }[]) {
     return genresOptions.map((genre) => ({

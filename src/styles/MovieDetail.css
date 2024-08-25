@@ -1,0 +1,44 @@
+.mainMovieDetail {
+  padding: 2em 20em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  align-items: flex-start;
+}
+.movieDetails {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+.img-movieDetail {
+  width: 30%;
+  height: auto;
+  margin-left: 5%;
+  box-shadow: rgba(206, 204, 204, 0.2) 0px 2px 8px 0px;
+}
+.title {
+  font-size: 2em;
+  color: #fbfbfb;
+  margin-bottom: 0.5em;
+}
+.movieDescription {
+  font-size: 0.8em;
+  line-height: 1.6;
+  padding: 4em;
+  color: #999;
+}
+.btnBack {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: #999;
+}
+.btnBack:hover {
+  cursor: pointer;
+  color: rgb(32, 170, 170);
+}
+.iconBack {
+  font-size: 2em;
+  margin-right: 1em;
+}
