@@ -15,7 +15,7 @@ export async function getMovieGenres(): Promise<[{ id: number; name: string }]> 
             throw new Error(`HTTP error! status: ${responseGenres.status}`);
         }
         const genresData = await responseGenres.json();
-        console.log('Fetched genres:', genresData.genres); // Verificar aquí
+
         return genresData.genres
     } catch (error) {
         console.error(`Error fetching movie genres: ${error}`);
@@ -34,13 +34,20 @@ export async function getMovieDetail(movie_id: number): Promise<Movie> {
         if (!responseMovie.ok) {
             throw new Error(`Failed to fetch movie details: ${responseMovie.statusText}`);
         }
-        const genres = await getMovieGenres() // obtengo generos, convertir los generos
+        const genres = await getMovieGenres() // obtengo generos, convierto a los generos
+        // console.log('Genres array:', genres);
         const genresMap = formatGenresToMap(genres)
-
+        // console.log('Genres Map:', genresMap);
         const movieData = await responseMovie.json();
-        // Transformar los datos de la API al modelo de negocio Movie
-        const movie: Movie = formatMovie(movieData, genresMap);
+        // console.log('Movie Data:', movieData);
+        // console.log('Movie Data Genres:', movieData.genres);
 
+        if (movieData.genres) {
+            movieData.genre_ids = movieData.genres.map((genre: { id: number; name: string }) => genre.id);
+        }
+
+        const movie: Movie = formatMovie(movieData, genresMap);
+        // console.log("Formatted Movie:", movie);
         return movie as Movie;
 
     } catch (error) {

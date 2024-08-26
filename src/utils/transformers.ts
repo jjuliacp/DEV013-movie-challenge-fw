@@ -16,9 +16,7 @@ export interface MovieData {
 }
 
 export function formatMovie(movieData: MovieData, genreNames: Map<number, string>): Movie {
-
-    console.log("Genre IDs: ", movieData.genre_ids);
-    console.log("Genre Names Map: ", genreNames);
+    // console.log("Genre IDs: ", movieData.genre_ids);
     return {
         id: movieData.id,
         title: movieData.title,

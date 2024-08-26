@@ -31,8 +31,8 @@ const MovieDetail: React.FC = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
-  console.log("esto es los generos ", movie.genres); // Depuración fuera del JSX
-  console.log("esto es los generos ", movie); // Depuración fuera del JSX
+  // console.log("esto es los generos ", movie.genres); // Depuración fuera del JSX
+  // console.log("esto es los generos ", movie); // Depuración fuera del JSX
 
   return (
     <>
@@ -58,7 +58,7 @@ const MovieDetail: React.FC = () => {
               </h1>
               <p>{movie.releaseYear}</p>
               <p>{movie.voteAverage}/ 10</p>
-              <p>Genres: {movie.genres}</p>
+              <p>Genres: {movie.genres.slice(0, 3).join(" , ")}</p>
               <p>Overview: {movie.overview}</p>
             </div>
           )}
