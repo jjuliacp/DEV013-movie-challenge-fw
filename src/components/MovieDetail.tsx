@@ -5,6 +5,7 @@ import Movie from "../models/movie";
 import { LuPlaySquare } from "react-icons/lu";
 import "../styles/MovieDetail.css";
 import { TiArrowBackOutline } from "react-icons/ti";
+import StarRatingComponent from "react-star-rating-component";
 
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -57,7 +58,16 @@ const MovieDetail: React.FC = () => {
                 {movie.title} ({movie.releaseYear})
               </h1>
               <p>{movie.releaseYear}</p>
-              <p>{movie.voteAverage}/ 10</p>
+              <p>
+                <StarRatingComponent
+                  name="rating"
+                  starCount={5}
+                  value={movie.voteAverage / 2}
+                  editing={false} // Evita que los usuarios puedan cambiar la calificación
+                />
+                <br />
+                {movie.voteAverage / 2}
+              </p>
               <p>Genres: {movie.genres.slice(0, 3).join(" , ")}</p>
               <p>Overview: {movie.overview}</p>
             </div>

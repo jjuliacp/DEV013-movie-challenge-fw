@@ -57,6 +57,7 @@ function Pagination({
   return (
     <nav className="containerPagination">
       <a
+        data-testid="btn-previous"
         className={`btnPrevious ${currentPage === 1 ? "is-Disable" : ""}`}
         href="#"
         onClick={onPreviousPage}
@@ -77,12 +78,15 @@ function Pagination({
                 {noPage}
               </a>
             ) : (
-              <span className="dots">&#8230;</span>
+              <span data-testid="btn-dots" className="dots">
+                &#8230;
+              </span>
             )}
           </li>
         ))}
       </ul>
       <a
+        data-testid="btn-next"
         className={`btnNext ${
           currentPage === pageNumbers.length ? "is-Disable" : ""
         }`}
