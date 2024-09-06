@@ -50,7 +50,7 @@ describe("getMovies", () => {
   test("should fetch and return movies", async () => {
     const result = await getMovies(filters, genresMap);
 
-    console.log("Received result:", result); // Debugging statement to check the result
+    //  console.log("Received result:", result); // Debugging statement to check the result
 
     expect(result).toEqual({
       metaData: {
@@ -75,7 +75,7 @@ describe("getMovies", () => {
   });
   test("should handle API errors", async () => {
     // Configura el mock para simular un error de red
-    global.fetch = jest.fn().mockImplementation(() =>
+    (global.fetch as jest.Mock).mockImplementation(() =>
       Promise.resolve({
         ok: false,
         status: 500,
