@@ -1,6 +1,31 @@
 import Movie from "../models/movie";
 import { MovieData } from "../utils/transformers";
 
+export const mockMovies: Movie[] = [
+    {
+        id: 1,
+        title: 'Inception',
+        overview: 'A mind-bending thriller',
+        posterPath: '/inception.jpg',
+        releaseYear: 2010,
+        genres: ['Action', 'Sci-Fi'],
+        voteAverage: 8.8,
+        voteCount: 20000,
+    },
+    {
+        id: 2,
+        title: 'Interstellar',
+        overview: 'A journey to the stars',
+        posterPath: '/interstellar.jpg',
+        releaseYear: 2014,
+        genres: ['Adventure', 'Sci-Fi'],
+        voteAverage: 8.6,
+        voteCount: 18000,
+    },
+];
+
+
+
 export const movieDataEmpty: MovieData = {
     id: 0,
     title: "",
