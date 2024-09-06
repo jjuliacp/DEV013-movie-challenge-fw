@@ -73,4 +73,18 @@ describe("getMovies", () => {
       ],
     });
   });
+  test("should handle API errors", async () => {
+    // Configura el mock para simular un error de red
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: false,
+        status: 500,
+        json: () => Promise.resolve({}),
+      })
+    );
+
+    await expect(getMovies(filters, genresMap)).rejects.toThrow(
+      "Network response was not ok"
+    );
+  });
 });

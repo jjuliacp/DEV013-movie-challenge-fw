@@ -47,15 +47,15 @@ describe("Transformers", () => {
   test("Handles empty string values correctly", () => {
     expect(formatMovie(movieDataEmpty, genresMap)).toEqual(expectedMovieEmpty);
   });
-  test("Convert array of genders to map ", () => {
+  test("Convert an array of genres into a map ", () => {
     expect(formatGenresToMap(genres)).toEqual(genresMap);
   });
-  test("return map empty if the array of genres is empty", () => {
+  test("return an empty map if the array of genres is empty", () => {
     const genres: { id: number; name: string }[] = [];
     const expectedMap = new Map<number, string>();
     expect(formatGenresToMap(genres)).toEqual(expectedMap);
   });
-  test("convert array of genres into array with options", () => {
+  test("Convert an array of genres into an array of options", () => {
     const genresOption = [
       { id: "28", name: "Action" },
       { id: "35", name: "Comedy" },
