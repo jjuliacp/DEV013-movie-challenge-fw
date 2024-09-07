@@ -1,3 +1,4 @@
+import StarRatingComponent from "react-star-rating-component";
 import { useEffect, useState } from "react";
 import { getMovieDetail } from "../services/movieService";
 import { useNavigate, useParams } from "react-router-dom";
@@ -5,7 +6,6 @@ import Movie from "../models/movie";
 import { LuPlaySquare } from "react-icons/lu";
 import "../styles/MovieDetail.css";
 import { TiArrowBackOutline } from "react-icons/ti";
-import StarRatingComponent from "react-star-rating-component";
 
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
