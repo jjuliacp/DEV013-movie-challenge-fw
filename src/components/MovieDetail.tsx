@@ -1,4 +1,4 @@
-import StarRatingComponent from "react-star-rating-component";
+// import StarRatingComponent from "react-star-rating-component";
 import { useEffect, useState } from "react";
 import { getMovieDetail } from "../services/movieService";
 import { useNavigate, useParams } from "react-router-dom";
@@ -59,14 +59,13 @@ const MovieDetail: React.FC = () => {
               </h1>
               <p>{movie.releaseYear}</p>
               <p>
-                <StarRatingComponent
+                {/* <StarRatingComponent
                   name="rating"
                   starCount={5}
                   value={movie.voteAverage / 2}
                   editing={false} // Evita que los usuarios puedan cambiar la calificación
-                />
-                <br />
-                {movie.voteAverage / 2}
+                /> */}
+                Rating: {movie.voteAverage / 2}
               </p>
               <p>
                 Genres: {movie.genres && movie.genres.slice(0, 3).join(" , ")}
