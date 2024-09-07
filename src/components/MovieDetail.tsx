@@ -1,3 +1,4 @@
+import StarRatingComponent from "react-star-rating-component";
 import { useEffect, useState } from "react";
 import { getMovieDetail } from "../services/movieService";
 import { useNavigate, useParams } from "react-router-dom";
@@ -5,7 +6,6 @@ import Movie from "../models/movie";
 import { LuPlaySquare } from "react-icons/lu";
 import "../styles/MovieDetail.css";
 import { TiArrowBackOutline } from "react-icons/ti";
-import StarRatingComponent from "react-star-rating-component";
 
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -54,7 +54,7 @@ const MovieDetail: React.FC = () => {
           />
           {movie && (
             <div className="movieDescription">
-              <h1 className="title">
+              <h1 className="title" data-testid="movie-title">
                 {movie.title} ({movie.releaseYear})
               </h1>
               <p>{movie.releaseYear}</p>
@@ -68,7 +68,9 @@ const MovieDetail: React.FC = () => {
                 <br />
                 {movie.voteAverage / 2}
               </p>
-              <p>Genres: {movie.genres.slice(0, 3).join(" , ")}</p>
+              <p>
+                Genres: {movie.genres && movie.genres.slice(0, 3).join(" , ")}
+              </p>
               <p>Overview: {movie.overview}</p>
             </div>
           )}

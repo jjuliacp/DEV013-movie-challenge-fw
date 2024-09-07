@@ -9,7 +9,7 @@ interface MovieListProps {
 
 const MovieList = ({ movies }: MovieListProps) => {
   return (
-    <ul className="container-cards">
+    <ul className="container-cards" data-testid="movie-list">
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} /> // usa una clave unica
       ))}

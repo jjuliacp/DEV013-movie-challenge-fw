@@ -47,7 +47,7 @@ function Pagination({
   };
 
   const onSpecificPage = (page: number, e: React.MouseEvent) => {
-    console.log("Specific Page clicked:", page);
+    // console.log("Specific Page clicked:", page);
     e.preventDefault();
     if (page !== currentPage) {
       onSelectPage(page);

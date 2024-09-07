@@ -13,6 +13,10 @@ const genresMap = new Map<number, string>([
   [35, "Comedy"],
 ]);
 
+jest.mock("../utils/config", () => ({
+  TOKEN_API: process.env.VITE_TOKEN_API,
+}));
+
 describe("getMovies", () => {
   beforeEach(() => {
     global.fetch = jest.fn().mockImplementation(() =>
@@ -46,9 +50,9 @@ describe("getMovies", () => {
   test("should fetch and return movies", async () => {
     const result = await getMovies(filters, genresMap);
 
-    console.log("Received result:", result); // Debugging statement to check the result
+    //  console.log("Received result:", result); // Debugging statement to check the result
 
-    expect(result).toBe({
+    expect(result).toEqual({
       metaData: {
         pagination: {
           currentPage: 1,
@@ -60,7 +64,7 @@ describe("getMovies", () => {
           id: 0,
           title: "Deadpool",
           posterPath: "https://image.tmdb.org/t/p/w500/path/to/deadpool.jpg",
-          releaseYear: 2024, // Ensure this is what you expect
+          releaseYear: 2023,
           overview: "this is a example",
           genres: ["Action", "Comedy"],
           voteAverage: 0,
@@ -68,5 +72,19 @@ describe("getMovies", () => {
         },
       ],
     });
+  });
+  test("should handle API errors", async () => {
+    // Configura el mock para simular un error de red
+    (global.fetch as jest.Mock).mockImplementation(() =>
+      Promise.resolve({
+        ok: false,
+        status: 500,
+        json: () => Promise.resolve({}),
+      })
+    );
+
+    await expect(getMovies(filters, genresMap)).rejects.toThrow(
+      "Network response was not ok"
+    );
   });
 });

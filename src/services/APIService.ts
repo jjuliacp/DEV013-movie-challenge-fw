@@ -34,8 +34,8 @@ export async function getMovies({ filters: { page = 1, genreId = null, sortBy = 
   if (sortBy) {
     url += `&sort_by=${sortBy}`;
   }
-  console.log("Constructed URL:", url);
-  console.log("Filters applied:", { page, genreId, sortBy });
+  // console.log("Constructed URL:", url);
+  // console.log("Filters applied:", { page, genreId, sortBy });
 
 
   try {
@@ -48,7 +48,7 @@ export async function getMovies({ filters: { page = 1, genreId = null, sortBy = 
       throw new Error('Network response was not ok');
     }
     const data: ApiResponse = await response.json();
-    console.log("data:", data)
+    // console.log("data:", data)
     // const movies: Movie[] = data.results.map((movie: MovieData) => formatMovie(movie, genresMap)); // Aplica la función de transformación
     //console.log('Formatted Movies:', movies); // log formato de pelis 
 
