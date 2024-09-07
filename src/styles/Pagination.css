@@ -1,0 +1,57 @@
+/* Pagination.css */
+footer {
+  max-width: 100%;
+  height: 100%;
+  padding: 1em 15rem;
+}
+.containerPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  height: 2rem;
+}
+
+.paginationList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.paginationList li {
+  margin: 0 0.3rem;
+}
+
+.btnPrevious,
+.btnNext {
+  border: none;
+  color: #ffffff;
+}
+
+.btnNumbers {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 12px 15px;
+  border: 1px solid rgba(23, 130, 130, 1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btnPrevious:hover,
+.btnNext:hover {
+  color: rgba(23, 130, 130, 0.8);
+}
+.btnNumbers:hover {
+  background-color: rgba(23, 130, 130, 1);
+}
+
+.is-current {
+  font-weight: bold;
+  color: white;
+  background-color: rgba(23, 130, 130, 1);
+}
+
+.is-Disable {
+  cursor: not-allowed;
+  opacity: 0;
+}

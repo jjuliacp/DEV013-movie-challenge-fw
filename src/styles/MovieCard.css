@@ -1,0 +1,40 @@
+.container-cards {
+  padding: 1em 18em;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+
+  row-gap: 0.1rem;
+  justify-items: center;
+  width: 100%;
+  height: 700px;
+  overflow-y: auto; /* Habilitar scroll vertical */
+  list-style: none;
+}
+
+.movie-card {
+  width: 195px;
+}
+.movie-title {
+  font-size: 1rem;
+  padding-bottom: 0.3rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.movie-genre,
+.movie-year {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.movie-card-img {
+  width: 12.2em;
+  height: auto;
+}
+
+.movie-card-img:hover {
+  filter: grayscale(0.5);
+}

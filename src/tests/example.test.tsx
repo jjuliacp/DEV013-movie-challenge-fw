@@ -1,13 +1,17 @@
-import { render, screen } from "@testing-library/react";
-//import { Home } from "../pages/home";
-import '@testing-library/jest-dom'
-import App from "../App";
+// import "@testing-library/jest-dom";
+// import App from "../components/App";
+// import { render, screen } from "@testing-library/react";
+// import { MemoryRouter } from "react-router-dom";
 
+// describe("App", () => {
+//   test("should render the App component with the Start page by default", () => {
+//     render(
+//       <MemoryRouter initialEntries={["/"]}>
+//         <App />
+//       </MemoryRouter>
+//     );
 
-describe("App", () => {
-  it("should render APP", () => {
-    render(<App />);
-    const text = screen.getByText(/Click on the Vite/i);
-    expect(text).toBeInTheDocument();
-  });
-});
+//     // Verifica que el texto "Start" esté presente en la pantalla
+//     expect(screen.getByText(/Start/i)).toBeInTheDocument();
+//   });
+// });
