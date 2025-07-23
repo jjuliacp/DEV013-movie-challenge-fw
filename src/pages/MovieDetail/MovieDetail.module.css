@@ -1,4 +1,4 @@
-.mainMovieDetail {
+/* .mainMovieDetail {
   padding: 2em 20em 1em;
   display: flex;
   flex-direction: column;
@@ -10,12 +10,7 @@
   align-items: center;
   gap: 3em;
 }
-.img-movieDetail {
-  width: 30%;
-  height: auto;
-  margin-left: 5%;
-  box-shadow: rgba(206, 204, 204, 0.2) 0px 2px 8px 0px;
-}
+
 .title {
   font-size: 2em;
   color: #fbfbfb;
@@ -41,4 +36,11 @@
 .iconBack {
   font-size: 2em;
   margin-right: 1em;
+} */
+
+.img-movieDetail {
+  width: 30%;
+  height: auto;
+  margin-left: 5%;
+  box-shadow: rgba(206, 204, 204, 0.2) 0px 2px 8px 0px;
 }

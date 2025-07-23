@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/Pagintation";
 import "@testing-library/jest-dom";
 
 describe("Pagination component", () => {

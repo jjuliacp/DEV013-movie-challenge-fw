@@ -1,4 +1,3 @@
-import "../styles/Pagination.css";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 
 interface PaginationProps {

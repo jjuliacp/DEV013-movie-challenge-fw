@@ -14,7 +14,7 @@ describe("MovieDetail", () => {
       getMovieDetail: jest.fn().mockResolvedValue({
         id: 1234,
         title: "Sample Movie",
-        posterPath: "/path/to/poster.jpg",
+        posterPath: "/path/to/poster.jpcg",
         releaseYear: 2023,
         overview: "This is a sample movie overview.",
         voteAverage: 8,
@@ -30,11 +30,10 @@ describe("MovieDetail", () => {
           </Routes>
         </MemoryRouter>
       );
+      // Esperar que el título esté en el documento
+      const movieTitle = screen.getByTestId("movie-title");
+
+      expect(movieTitle).toBeInTheDocument();
     });
-
-    // Esperar que el título esté en el documento
-    const movieTitle = screen.getByTestId("movie-title");
-
-    expect(movieTitle).toBeInTheDocument();
   });
 });

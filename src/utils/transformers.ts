@@ -1,7 +1,7 @@
 import Movie from "../models/movie";
 
 
-export interface MovieData {
+export interface MovieData { //datos crudos de la pelicula
     id: number;
     title: string;
     poster_path: string;
