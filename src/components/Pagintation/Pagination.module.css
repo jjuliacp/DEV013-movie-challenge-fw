@@ -1,25 +1,23 @@
-/* Pagination.css footer {
-  max-width: 100%;
-  height: 100%;
-  padding: 1em 15rem;
-}
-
-.containerPagination {
+.pagination {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-  height: 2rem;
+  padding: 1rem;
+
 }
 
-.paginationList {
+.pageNumbers {
   list-style: none;
-  padding: 0;
   display: flex;
-}
+  gap: 0.5rem;
 
-.paginationList li {
-  margin: 0 0.3rem;
+  & .btnNumbers {
+    color: whitesmoke;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    border: 1px solid #04918e;
+    border-radius: 50%;
+  }
 }
 
 .btnPrevious,
@@ -28,31 +26,22 @@
   color: #ffffff;
 }
 
-.btnNumbers {
-  text-decoration: none;
-  color: #ffffff;
-  padding: 12px 15px;
-  border: 1px solid rgba(23, 130, 130, 1);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .btnPrevious:hover,
 .btnNext:hover {
-  color: rgba(23, 130, 130, 0.8);
+  color: #04918e;
 }
 
 .btnNumbers:hover {
-  background-color: rgba(23, 130, 130, 1);
+  background-color: #04918e;
 }
 
-.is-current {
-  font-weight: bold;
-  color: white;
-  background-color: rgba(23, 130, 130, 1);
-}
-
-.is-Disable {
+.isDisable {
   cursor: not-allowed;
   opacity: 0;
-} */
+}
+
+.isCurrent {
+  font-weight: bold;
+  color: white;
+  background-color: #04918e;
+}

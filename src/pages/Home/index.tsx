@@ -144,42 +144,44 @@ function Home() {
 
   return (
     <>
-      <header>
-        <LuPlaySquare className={styles.logoIcon} />
-        <h1 className={styles.logoText}>Cinephile</h1>
-      </header>
-      <nav className={styles.nav}>
-        <ListOptions
-          type="Filter By Category"
-          options={genreOptions}
-          selectedOption={selectedGenre}
-          onChange={selectFilter}
-          onClear={clearFilter}
-        />
-        <ListOptions
-          type="Sort by"
-          options={sortByOptions}
-          selectedOption={selectedSortBy}
-          onChange={selectSort}
-          onClear={clearSort}
-        />
-      </nav>
-      <main className={isLoading ? styles.loading : ""}>
-        {isLoading && <div className={styles.loader}></div>}
-        {!isLoading && error && (
-          <p>Ocurrió un error al cargar las películas.</p>
-        )}
-        {!isLoading && !error && <MovieList movies={movies} />}
-      </main>
-      {!isLoading && !error && (
-        <footer>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={Math.min(totalPages, 30)}
-            onSelectPage={selectPage}
+      <div className={styles.container}>
+        <header>
+          <LuPlaySquare className={styles.logoIcon} />
+          <h1 className={styles.logoText}>Cinephile</h1>
+        </header>
+        <nav className={styles.nav}>
+          <ListOptions
+            type="Filter By Category"
+            options={genreOptions}
+            selectedOption={selectedGenre}
+            onChange={selectFilter}
+            onClear={clearFilter}
           />
-        </footer>
-      )}
+          <ListOptions
+            type="Sort by"
+            options={sortByOptions}
+            selectedOption={selectedSortBy}
+            onChange={selectSort}
+            onClear={clearSort}
+          />
+        </nav>
+        <main className={isLoading ? styles.loading : ""}>
+          {isLoading && <div className={styles.loader}></div>}
+          {!isLoading && error && (
+            <p>Ocurrió un error al cargar las películas.</p>
+          )}
+          {!isLoading && !error && <MovieList movies={movies} />}
+        </main>
+        {!isLoading && !error && (
+          <footer className={styles.footer}>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.min(totalPages, 30)}
+              onSelectPage={selectPage}
+            />
+          </footer>
+        )}
+      </div>
     </>
   );
 }
