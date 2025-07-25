@@ -4,7 +4,6 @@ import { getMovies } from "../../services/APIService";
 import MovieList from "../../components/MovieList";
 import styles from "./Home.module.css";
 import Pagination from "../../components/Pagintation";
-import { LuPlaySquare } from "react-icons/lu";
 import { useSearchParams } from "react-router-dom";
 import {
   formatGenresToMap,
@@ -12,6 +11,7 @@ import {
 } from "../../utils/transformers";
 import { getMovieGenres } from "../../services/movieService";
 import ListOptions from "../../components/ListOptions";
+import Logo from "../../components/Logo";
 
 function Home() {
   const [movies, setMovies] = useState<Movie[]>([]); // Estado para almacenar las películas
@@ -145,10 +145,7 @@ function Home() {
   return (
     <>
       <div className={styles.container}>
-        <header>
-          <LuPlaySquare className={styles.logoIcon} />
-          <h1 className={styles.logoText}>Cinephile</h1>
-        </header>
+        <Logo />
         <nav className={styles.nav}>
           <ListOptions
             type="Filter By Category"

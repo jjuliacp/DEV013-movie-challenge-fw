@@ -1,12 +1,12 @@
 // import StarRatingComponent from "react-star-rating-component";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { LuPlaySquare } from "react-icons/lu";
 
 import { TiArrowBackOutline } from "react-icons/ti";
 import Movie from "../../models/movie";
 import { getMovieDetail } from "../../services/movieService";
-
+import styles from "./MovieDetail.module.css";
+import Logo from "../../components/Logo";
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<Movie>({} as Movie);
@@ -36,25 +36,22 @@ const MovieDetail: React.FC = () => {
   // console.log("esto es los generos ", movie); // Depuración fuera del JSX
 
   return (
-    <>
-      <header>
-        <LuPlaySquare className="logo-icon" />
-        <h1 className="logo-text">Cinephile</h1>
-      </header>
-      <main className="mainMovieDetail">
-        <button className="btnBack" onClick={() => navigate(-1)}>
-          <TiArrowBackOutline className="iconBack" />
+    <div className={styles.container}>
+      <Logo />
+      <main className={styles.mainMovieDetail}>
+        <button className={styles.btnBack} onClick={() => navigate(-1)}>
+          <TiArrowBackOutline className={styles.iconBack} />
           Back to the movie list
         </button>
-        <div className="movieDetails">
+        <div className={styles.movieDetails}>
           <img
-            className="img-movieDetail"
+            className={styles.moviePoster}
             src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
             alt={movie.title}
           />
           {movie && (
-            <div className="movieDescription">
-              <h1 className="title" data-testid="movie-title">
+            <div className={styles.movieDescription}>
+              <h1 className={styles.title} data-testid="movie-title">
                 {movie.title} ({movie.releaseYear})
               </h1>
               <p>{movie.releaseYear}</p>
@@ -75,7 +72,7 @@ const MovieDetail: React.FC = () => {
           )}
         </div>
       </main>
-    </>
+    </div>
   );
 };
 export default MovieDetail;
