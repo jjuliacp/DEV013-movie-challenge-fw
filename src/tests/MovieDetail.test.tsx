@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import MovieDetail from "../components/MovieDetail";
+
 import { act } from "react";
+import MovieDetail from "../pages/MovieDetail";
 
 // import { responseMovieDetail } from "./mockdata";
 
