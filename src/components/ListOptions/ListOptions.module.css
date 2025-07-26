@@ -1,0 +1,23 @@
+ .filterForm {
+     display: flex;
+     justify-self: center;
+     gap: 0.5rem;
+ }
+
+ .genreSelect {
+     padding: 1rem;
+     background-color: #04918e;
+     font-size: 0.8rem;
+     color: whitesmoke;
+     font-weight: bold;
+     border: none;
+     border-radius: 0.2rem;
+ }
+
+ button[type=button] {
+     background-color: transparent;
+     border: none;
+     color: whitesmoke;
+     cursor: pointer;
+     font-size: 1.5rem;
+ }

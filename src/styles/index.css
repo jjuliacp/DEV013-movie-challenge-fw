@@ -1,7 +1,9 @@
-* {
+*,
+*::before,
+*::after {
   padding: 0;
-  box-sizing: border-box;
   margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -9,9 +11,8 @@
   font-weight: 400;
   background-color: #242123;
   color: #fbfbfb;
-}
-body {
-  min-height: 100vh;
-  min-width: 320px;
-  overflow: hidden;
+  height: 100dvh;
+  min-height: 100dvh;
+
+
 }

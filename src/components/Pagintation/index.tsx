@@ -1,6 +1,5 @@
-import "../styles/Pagination.css";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-
+import styles from "./Pagination.module.css";
 interface PaginationProps {
   currentPage: number; // representa la pagina activa actual
   totalPages: number; // representa el recuento total de paginas
@@ -55,22 +54,24 @@ function Pagination({
   };
 
   return (
-    <nav className="containerPagination">
+    <nav className={styles.pagination}>
       <a
         data-testid="btn-previous"
-        className={`btnPrevious ${currentPage === 1 ? "is-Disable" : ""}`}
+        className={`${styles.btnPrevious} ${
+          currentPage === 1 ? styles.isDisable : ""
+        }`}
         href="#"
         onClick={onPreviousPage}
       >
         <IoMdArrowDropleft />
       </a>
-      <ul className="paginationList">
+      <ul className={styles.pageNumbers}>
         {pageNumbers.map((noPage, index) => (
           <li key={index}>
             {typeof noPage === "number" ? (
               <a
-                className={`btnNumbers ${
-                  noPage === currentPage ? "is-current" : ""
+                className={`${styles.btnNumbers} ${
+                  noPage === currentPage ? styles.isCurrent : ""
                 }`}
                 href="#"
                 onClick={(e) => onSpecificPage(noPage, e)}
@@ -78,7 +79,7 @@ function Pagination({
                 {noPage}
               </a>
             ) : (
-              <span data-testid="btn-dots" className="dots">
+              <span data-testid="btn-dots" className={styles.dots}>
                 &#8230;
               </span>
             )}
@@ -87,8 +88,8 @@ function Pagination({
       </ul>
       <a
         data-testid="btn-next"
-        className={`btnNext ${
-          currentPage === pageNumbers.length ? "is-Disable" : ""
+        className={`${styles.btnNext} ${
+          currentPage === totalPages ? styles.isDisable : ""
         }`}
         href="#"
         onClick={onNextPage}

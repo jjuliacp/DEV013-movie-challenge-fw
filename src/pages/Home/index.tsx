@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import Movie from "../models/movie";
-import { getMovies } from "../services/APIService";
-import MovieList from "./MovieList";
-import "../styles/Home.css";
-import Pagination from "./Pagination";
-import { LuPlaySquare } from "react-icons/lu";
+import Movie from "../../models/movie";
+import { getMovies } from "../../services/APIService";
+import MovieList from "../../components/MovieList";
+import styles from "./Home.module.css";
+import Pagination from "../../components/Pagintation";
 import { useSearchParams } from "react-router-dom";
 import {
   formatGenresToMap,
   formatGenresToOptions,
-} from "../utils/transformers";
-import { getMovieGenres } from "../services/movieService";
-import ListOptions from "./ListOptions";
+} from "../../utils/transformers";
+import { getMovieGenres } from "../../services/movieService";
+import ListOptions from "../../components/ListOptions";
+import Logo from "../../components/Logo";
 
 function Home() {
   const [movies, setMovies] = useState<Movie[]>([]); // Estado para almacenar las películas
@@ -144,42 +144,41 @@ function Home() {
 
   return (
     <>
-      <header>
-        <LuPlaySquare className="logo-icon" />
-        <h1 className="logo-text">Cinephile</h1>
-      </header>
-      <nav className="filter-navigation">
-        <ListOptions
-          type="Filter By Category"
-          options={genreOptions}
-          selectedOption={selectedGenre}
-          onChange={selectFilter}
-          onClear={clearFilter}
-        />
-        <ListOptions
-          type="Sort by"
-          options={sortByOptions}
-          selectedOption={selectedSortBy}
-          onChange={selectSort}
-          onClear={clearSort}
-        />
-      </nav>
-      <main className={isLoading ? "loading" : ""}>
-        {isLoading && <div className="loader"></div>}
-        {!isLoading && error && (
-          <p>Ocurrió un error al cargar las películas.</p>
-        )}
-        {!isLoading && !error && <MovieList movies={movies} />}
-      </main>
-      {!isLoading && !error && (
-        <footer>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={Math.min(totalPages, 30)}
-            onSelectPage={selectPage}
+      <div className={styles.container}>
+        <Logo />
+        <nav className={styles.nav}>
+          <ListOptions
+            type="Filter By Category"
+            options={genreOptions}
+            selectedOption={selectedGenre}
+            onChange={selectFilter}
+            onClear={clearFilter}
           />
-        </footer>
-      )}
+          <ListOptions
+            type="Sort by"
+            options={sortByOptions}
+            selectedOption={selectedSortBy}
+            onChange={selectSort}
+            onClear={clearSort}
+          />
+        </nav>
+        <main className={isLoading ? styles.loading : ""}>
+          {isLoading && <div className={styles.loader}></div>}
+          {!isLoading && error && (
+            <p>Ocurrió un error al cargar las películas.</p>
+          )}
+          {!isLoading && !error && <MovieList movies={movies} />}
+        </main>
+        {!isLoading && !error && (
+          <footer className={styles.footer}>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.min(totalPages, 30)}
+              onSelectPage={selectPage}
+            />
+          </footer>
+        )}
+      </div>
     </>
   );
 }

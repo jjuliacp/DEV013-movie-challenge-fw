@@ -1,43 +1,42 @@
-.mainMovieDetail {
-  padding: 2em 20em 1em;
+.container {
   display: flex;
   flex-direction: column;
-  gap: 3em;
-  align-items: flex-start;
+  height: 100vh;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  gap: 2rem;
 }
+
 .movieDetails {
   display: flex;
   align-items: center;
+  padding-top: 2rem;
   gap: 3em;
 }
-.img-movieDetail {
+
+.moviePoster {
   width: 30%;
   height: auto;
   margin-left: 5%;
   box-shadow: rgba(206, 204, 204, 0.2) 0px 2px 8px 0px;
 }
-.title {
-  font-size: 2em;
-  color: #fbfbfb;
-  margin-bottom: 0.5em;
-}
-.movieDescription {
-  font-size: 0.8em;
-  line-height: 1.6;
-  padding: 4em;
-  color: #999;
-}
+
 .btnBack {
   display: flex;
   align-items: center;
   background-color: transparent;
   border: none;
+  font-size: 1em;
   color: #999;
 }
+
 .btnBack:hover {
   cursor: pointer;
-  color: rgb(32, 170, 170);
+  color: #0ddfdb;
 }
+
 .iconBack {
   font-size: 2em;
   margin-right: 1em;

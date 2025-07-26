@@ -1,5 +1,5 @@
 import { GrPowerReset } from "react-icons/gr";
-
+import styles from "./ListOptions.module.css";
 interface ListOptionsProps {
   type: string;
   options: { value: string; label: string }[];
@@ -19,9 +19,9 @@ const ListOptions: React.FC<ListOptionsProps> = ({
 
   return (
     <>
-      <form className="filters-container">
+      <form className={styles.filterForm}>
         <select
-          className="genre-select"
+          className={styles.genreSelect}
           name="genre"
           id="genre-select"
           value={selectedOption?.value || defaultValue}

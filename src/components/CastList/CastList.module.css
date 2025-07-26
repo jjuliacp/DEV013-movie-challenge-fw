@@ -1,0 +1,16 @@
+.castList {
+    display: flex;
+
+}
+
+.castCard>img {
+    width: 90%;
+    height: auto;
+
+
+}
+
+.castCard>p {
+    font-size: 0.8rem;
+
+}
