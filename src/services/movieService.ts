@@ -55,3 +55,22 @@ export async function getMovieDetail(movie_id: number): Promise<Movie> {
         throw error;
     }
 }
+
+export async function getMovieCredits(movie_id: number) {
+    const urlCredits = `https://api.themoviedb.org/3/movie/${movie_id}/credits`
+    try {
+        const responseCredits = await fetch(urlCredits, {
+            headers: {
+                authorization: `Bearer ${TOKEN_API}`,
+            },
+        });
+        if (!responseCredits.ok) {
+            throw new Error(`Failed to fetch movie credits: ${responseCredits.statusText}`);
+        }
+        const creditsData = await responseCredits.json();
+        return creditsData.cast;
+    } catch (error) {
+        console.error(`Error fetching movie credits: ${error}`);
+        throw error;
+    }
+}
