@@ -52,10 +52,6 @@ El Product Owner nos entrega una primera iteración del prototipo de baja fideli
 
  
 
-**Prototipo de alta fidelidad**
-</br>
-<img src="https://github.com/user-attachments/assets/eb000efd-2445-45a3-bf64-35a1304d82c0" alt="prototipo" width="1800" align="center"   >
-
 
 ## Resultado Final
 
