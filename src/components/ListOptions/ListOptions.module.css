@@ -5,9 +5,9 @@
  }
 
  .genreSelect {
-     padding: 1rem;
+     padding: 0.6rem;
      background-color: #04918e;
-     font-size: 0.8rem;
+     font-size: 0.7rem;
      color: whitesmoke;
      font-weight: bold;
      border: none;
@@ -19,5 +19,17 @@
      border: none;
      color: whitesmoke;
      cursor: pointer;
-     font-size: 1.5rem;
+     font-size: 1.2rem;
+ }
+
+ @media (min-width: 426px) {
+
+     .genreSelect {
+         padding: 1rem;
+         font-size: 0.8rem;
+     }
+
+     button[type=button] {
+         font-size: 1.2rem;
+     }
  }

@@ -11,6 +11,20 @@
 }
 
 .castCard>p {
-    font-size: 0.8rem;
+    font-size: 0.5rem
+}
 
+@media (min-width: 768px) {
+    .castList {
+        flex-direction: row;
+
+    }
+
+    .castCard>img {
+        width: 90%;
+    }
+
+    .castCard>p {
+        font-size: 0.8rem;
+    }
 }
